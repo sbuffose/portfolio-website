@@ -28,8 +28,10 @@ export default function Navigation({ t }: NavigationProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 animate-slide-down ${
-        scrolled ? 'glass-strong py-4' : 'py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-lg border-b border-gray-200 shadow-sm py-4'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -39,9 +41,10 @@ export default function Navigation({ t }: NavigationProps) {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-purple-600 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </div>

@@ -16,14 +16,7 @@ export default function Home() {
   const t = translations[language]
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
-      </div>
-
+    <main className="min-h-screen bg-white">
       {/* Language Toggle */}
       <LanguageToggle language={language} setLanguage={setLanguage} />
 
@@ -31,7 +24,7 @@ export default function Home() {
       <Navigation t={t} />
 
       {/* Sections */}
-      <div className="relative z-10 animate-fade-in">
+      <div className="relative">
         <Hero t={t.hero} />
         <About t={t.about} />
         <Projects t={t.projects} />
@@ -41,12 +34,12 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 text-center text-gray-400">
-        <div className="container mx-auto px-4">
-          <p className="text-sm">
+      <footer className="relative py-16 bg-gradient-to-b from-white to-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-600 mb-2">
             © {new Date().getFullYear()} Sebastian Buffo Sempe. {t.footer.rights}.
           </p>
-          <p className="text-xs mt-2">
+          <p className="text-sm text-gray-500">
             {t.footer.madeWith} ❤️ {t.footer.and} Next.js + Tailwind CSS
           </p>
         </div>

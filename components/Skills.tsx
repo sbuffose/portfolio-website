@@ -14,54 +14,75 @@ export default function Skills({ t }: SkillsProps) {
   const skillCategories = [
     {
       title: t.backend,
-      skills: ['Ruby on Rails', 'Python', 'Node.js', 'SQL', 'REST APIs'],
-      color: 'from-red-500 to-pink-500',
+      skills: ['Ruby on Rails', 'Python', 'Node.js', 'REST APIs'],
+      icon: '⚙️',
+      gradient: 'from-red-500 to-orange-500',
     },
     {
       title: t.frontend,
-      skills: ['React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML/CSS'],
-      color: 'from-blue-500 to-cyan-500',
+      skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'],
+      icon: '🎨',
+      gradient: 'from-blue-500 to-cyan-500',
     },
     {
       title: t.databases,
-      skills: ['PostgreSQL', 'Redis', 'SQLite', 'MongoDB'],
-      color: 'from-green-500 to-teal-500',
+      skills: ['PostgreSQL', 'Redis', 'Supabase', 'MongoDB'],
+      icon: '💾',
+      gradient: 'from-green-500 to-emerald-500',
     },
     {
       title: t.tools,
-      skills: ['Git', 'Docker', 'Linux', 'Heroku', 'AWS'],
-      color: 'from-purple-500 to-indigo-500',
+      skills: ['Git', 'Docker', 'AWS', 'CI/CD'],
+      icon: '🛠️',
+      gradient: 'from-violet-500 to-purple-500',
     },
   ]
 
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text animate-fade-in">
-          {t.title}
-        </h2>
+    <section id="skills" className="py-32 bg-white">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <span className="gradient-text">{t.title}</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Tecnologías y herramientas con las que construyo soluciones
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Skills grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="glass rounded-2xl p-6 hover:glass-strong transition-all animate-fade-in"
-              style={{animationDelay: `${index * 0.1}s`}}
+              className="group relative bg-white rounded-3xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-2xl hover:shadow-gray-900/10 transition-all duration-300"
+              style={{
+                animationDelay: `${index * 100}ms`,
+              }}
             >
-              <div className={`w-full h-1 rounded-full bg-gradient-to-r ${category.color} mb-4`} />
+              {/* Icon */}
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">
+                {category.icon}
+              </div>
 
-              <h3 className="text-xl font-bold mb-4 text-white">
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">
                 {category.title}
               </h3>
 
-              <ul className="space-y-2">
+              {/* Skills list */}
+              <ul className="space-y-3">
                 {category.skills.map((skill) => (
-                  <li key={skill} className="text-gray-300 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-white/50 rounded-full" />
-                    {skill}
+                  <li key={skill} className="flex items-center gap-3 text-gray-600">
+                    <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.gradient}`} />
+                    <span>{skill}</span>
                   </li>
                 ))}
               </ul>
+
+              {/* Hover gradient */}
+              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity -z-10`} />
             </div>
           ))}
         </div>
