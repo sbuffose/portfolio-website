@@ -38,24 +38,14 @@ export default function Projects({ t }: ProjectsProps) {
 
   const projects = [
     {
-      ...t.proptech,
+      ...t.cookingService,
       gradient: 'from-purple-500 to-pink-500',
-      link: 'https://github.com/sbuffose/proptech-rails',
+      link: 'https://www.cookingservice.com.ar/',
     },
     {
-      ...t.cooking4u,
-      gradient: 'from-pink-500 to-orange-500',
-      link: 'https://github.com/sbuffose/cooking4u',
-    },
-    {
-      ...t.afipsdk,
+      ...t.techPocket,
       gradient: 'from-blue-500 to-cyan-500',
-      link: 'https://github.com/sbuffose/afipsdk',
-    },
-    {
-      ...t.dotfiles,
-      gradient: 'from-green-500 to-teal-500',
-      link: 'https://github.com/sbuffose/dotfiles',
+      link: 'https://tech-pocket.com/',
     },
   ]
 
