@@ -16,12 +16,7 @@ export default function Home() {
   const t = translations[language]
 
   return (
-    <main className="min-h-screen bg-slate-950 overflow-x-hidden">
-      {/* Ambient background effects */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-glow delay-300" />
-      </div>
+    <main className="min-h-screen bg-[#0A0E27] overflow-x-hidden">
 
       {/* Language Toggle */}
       <LanguageToggle language={language} setLanguage={setLanguage} />
@@ -40,13 +35,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="relative py-16 bg-slate-900 border-t border-blue-500/20">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 mb-2">
-            © {new Date().getFullYear()} Sebastian Buffo Sempe. {t.footer.rights}.
-          </p>
-          <p className="text-sm text-slate-500">
-            {t.footer.madeWith} <span className="text-red-500">❤️</span> {t.footer.and} <span className="gradient-text">Next.js + AI</span>
+      <footer className="relative py-12 bg-[#0A0E27] border-t border-slate-800/50">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-slate-500 text-sm">
+            © {new Date().getFullYear()} Sebastian Buffo Sempe. All rights reserved.
           </p>
         </div>
       </footer>

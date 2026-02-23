@@ -9,20 +9,19 @@ interface AboutProps {
 
 export default function About({ t }: AboutProps) {
   return (
-    <section id="about" className="py-32 bg-slate-900 relative overflow-hidden">
-      {/* Backgrounds */}
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/5 to-transparent" />
+    <section id="about" className="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 dot-pattern opacity-30" />
 
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
-          <div className="space-y-8 animate-fade-in-up">
+          <div className="space-y-6 animate-fade-in-up">
             <div>
-              <h2 className="text-5xl md:text-6xl font-black mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="gradient-text">{t.title}</span>
               </h2>
-              <p className="text-xl text-slate-300 leading-relaxed">
+              <p className="text-lg text-slate-400 leading-relaxed">
                 {t.description}
               </p>
             </div>
