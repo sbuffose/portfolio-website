@@ -24,14 +24,22 @@ export default function Projects({ t }: ProjectsProps) {
       ...t.cookingService,
       gradient: 'from-emerald-500 to-teal-600',
       link: 'https://www.cookingservice.com.ar/',
-      icon: '🍽️',
+      icon: (
+        <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+        </svg>
+      ),
       color: 'emerald',
     },
     {
       ...t.techPocket,
       gradient: 'from-blue-500 to-purple-600',
       link: 'https://tech-pocket.com/',
-      icon: '💼',
+      icon: (
+        <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       color: 'blue',
     },
   ]
@@ -67,8 +75,8 @@ export default function Projects({ t }: ProjectsProps) {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Icon */}
-              <div className="mb-6">
-                <div className="text-5xl">{project.icon}</div>
+              <div className="mb-6 text-blue-400">
+                {project.icon}
               </div>
 
               {/* Title */}

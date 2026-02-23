@@ -29,16 +29,37 @@ export default function About({ t }: AboutProps) {
             {/* Key points with AI twist */}
             <div className="space-y-4">
               {[
-                { icon: '🚀', text: 'Full Stack Development' },
-                { icon: '🤖', text: 'AI Integration & Automation' },
-                { icon: '⚡', text: 'Scalable Cloud Architecture' },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ),
+                  text: 'Full Stack Development'
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  ),
+                  text: 'AI Integration & Automation'
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                    </svg>
+                  ),
+                  text: 'Scalable Cloud Architecture'
+                },
               ].map((point, index) => (
                 <div
                   key={point.text}
                   className="flex items-center gap-4 group glass-card rounded-xl p-4 hover:border-blue-500/40 transition-all animate-slide-in-right"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex-shrink-0 text-3xl animate-float-slow" style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className="flex-shrink-0 text-blue-400">
                     {point.icon}
                   </div>
                   <span className="text-lg font-medium text-slate-200">{point.text}</span>
