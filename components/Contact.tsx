@@ -22,6 +22,7 @@ export default function Contact({ t }: ContactProps) {
         </svg>
       ),
       gradient: 'from-blue-500 to-cyan-500',
+      emoji: '📧',
     },
     {
       label: t.github,
@@ -32,7 +33,8 @@ export default function Contact({ t }: ContactProps) {
           <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
         </svg>
       ),
-      gradient: 'from-gray-700 to-gray-900',
+      gradient: 'from-slate-600 to-slate-800',
+      emoji: '💻',
     },
     {
       label: t.linkedin,
@@ -44,57 +46,62 @@ export default function Contact({ t }: ContactProps) {
         </svg>
       ),
       gradient: 'from-blue-600 to-blue-700',
+      emoji: '🔗',
     },
   ]
 
   return (
-    <section id="contact" className="py-32 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 opacity-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
+    <section id="contact" className="py-32 bg-slate-950 relative overflow-hidden">
+      {/* Backgrounds */}
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="absolute inset-0 neural-bg" />
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
             <span className="gradient-text">{t.title}</span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-slate-400">
             {t.description}
           </p>
         </div>
 
         {/* Contact cards */}
         <div className="grid md:grid-cols-3 gap-6">
-          {contacts.map((contact) => (
+          {contacts.map((contact, index) => (
             <a
               key={contact.label}
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-2xl transition-all"
+              className="group relative glass-card rounded-2xl p-8 hover:border-blue-500/40 transition-all shimmer animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Icon */}
-              <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${contact.gradient} text-white mb-6 group-hover:scale-110 transition-transform`}>
-                {contact.icon}
+              {/* Emoji icon */}
+              <div className="text-5xl mb-6 animate-float-slow" style={{ animationDelay: `${index * 200}ms` }}>
+                {contact.emoji}
               </div>
 
               {/* Label */}
-              <div className="text-sm font-medium text-gray-500 mb-2">
+              <div className="text-sm font-medium text-slate-500 mb-2 uppercase tracking-wide">
                 {contact.label}
               </div>
 
               {/* Value */}
-              <div className="text-gray-900 font-medium break-all group-hover:text-violet-600 transition-colors">
+              <div className="text-white font-medium break-all group-hover:gradient-text transition-all mb-4">
                 {contact.value}
               </div>
 
               {/* Arrow */}
-              <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 group-hover:-translate-y-1">
+                <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
+
+              {/* Glow on hover */}
+              <div className={`absolute -inset-1 bg-gradient-to-r ${contact.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity -z-10`} />
             </a>
           ))}
         </div>

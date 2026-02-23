@@ -9,63 +9,71 @@ interface AboutProps {
 
 export default function About({ t }: AboutProps) {
   return (
-    <section id="about" className="py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-50/50 to-transparent" />
+    <section id="about" className="py-32 bg-slate-900 relative overflow-hidden">
+      {/* Backgrounds */}
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/5 to-transparent" />
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left side - Visual */}
-          <div className="relative">
-            <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-violet-100 to-purple-100 p-12 border border-violet-200/50 overflow-hidden">
-              {/* Grid pattern */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf610_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf610_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-              {/* Floating stats */}
-              <div className="relative h-full flex flex-col justify-between">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-violet-200/50 transform hover:scale-105 transition-transform">
-                  <div className="text-4xl font-bold gradient-text mb-2">5+</div>
-                  <div className="text-sm text-gray-600">Años de Experiencia</div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-violet-200/50 ml-auto transform hover:scale-105 transition-transform">
-                  <div className="text-4xl font-bold gradient-text mb-2">20+</div>
-                  <div className="text-sm text-gray-600">Proyectos Completados</div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-violet-200/50 transform hover:scale-105 transition-transform">
-                  <div className="text-4xl font-bold gradient-text mb-2">100%</div>
-                  <div className="text-sm text-gray-600">Compromiso</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side - Content */}
-          <div className="space-y-8">
+          {/* Left side - Content */}
+          <div className="space-y-8 animate-fade-in-up">
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-                {t.title}
+              <h2 className="text-5xl md:text-6xl font-black mb-6">
+                <span className="gradient-text">{t.title}</span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-slate-300 leading-relaxed">
                 {t.description}
               </p>
             </div>
 
-            {/* Key points */}
+            {/* Key points with AI twist */}
             <div className="space-y-4">
               {[
-                'Full Stack Development',
-                'Product Design & Strategy',
-                'Scalable Architecture',
+                { icon: '🚀', text: 'Full Stack Development' },
+                { icon: '🤖', text: 'AI Integration & Automation' },
+                { icon: '⚡', text: 'Scalable Cloud Architecture' },
               ].map((point, index) => (
-                <div key={point} className="flex items-center gap-4 group">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold group-hover:scale-110 transition-transform">
-                    {index + 1}
+                <div
+                  key={point.text}
+                  className="flex items-center gap-4 group glass-card rounded-xl p-4 hover:border-blue-500/40 transition-all animate-slide-in-right"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="flex-shrink-0 text-3xl animate-float-slow" style={{ animationDelay: `${index * 200}ms` }}>
+                    {point.icon}
                   </div>
-                  <span className="text-lg font-medium text-gray-700">{point}</span>
+                  <span className="text-lg font-medium text-slate-200">{point.text}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right side - Floating stats */}
+          <div className="relative animate-fade-in delay-300">
+            <div className="relative aspect-square rounded-3xl glass-card p-12 overflow-hidden scan-line">
+              {/* Grid pattern */}
+              <div className="absolute inset-0 grid-pattern opacity-20" />
+
+              {/* Floating stats */}
+              <div className="relative h-full flex flex-col justify-between">
+                <div className="glass-card rounded-2xl p-6 border-blue-500/30 transform hover:scale-105 transition-all glow-blue animate-float" style={{ animationDelay: '0s' }}>
+                  <div className="text-5xl font-black gradient-text mb-2">5+</div>
+                  <div className="text-sm text-slate-400 uppercase tracking-wide">Años de Experiencia</div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-6 border-purple-500/30 ml-auto transform hover:scale-105 transition-all glow-purple animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="text-5xl font-black gradient-ai mb-2">20+</div>
+                  <div className="text-sm text-slate-400 uppercase tracking-wide">Proyectos AI</div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-6 border-cyan-500/30 transform hover:scale-105 transition-all glow-cyan animate-float" style={{ animationDelay: '2s' }}>
+                  <div className="text-5xl font-black gradient-text mb-2">100%</div>
+                  <div className="text-sm text-slate-400 uppercase tracking-wide">Innovación</div>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-glow" />
             </div>
           </div>
         </div>

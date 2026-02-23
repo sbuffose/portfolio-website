@@ -9,14 +9,14 @@ interface LanguageToggleProps {
 
 export default function LanguageToggle({ language, setLanguage }: LanguageToggleProps) {
   return (
-    <div className="fixed top-6 right-6 z-50">
-      <div className="bg-white/80 backdrop-blur-lg rounded-full p-1 flex gap-1 border border-gray-200 shadow-lg">
+    <div className="fixed top-6 right-6 z-50 animate-fade-in">
+      <div className="glass-card rounded-full p-1 flex gap-1 border-blue-500/30 shadow-2xl shadow-blue-500/20">
         <button
           onClick={() => setLanguage('es')}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
             language === 'es'
-              ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg'
-              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+              ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg glow-blue'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
           }`}
         >
           🇪🇸 ES
@@ -25,8 +25,8 @@ export default function LanguageToggle({ language, setLanguage }: LanguageToggle
           onClick={() => setLanguage('en')}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
             language === 'en'
-              ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg'
-              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+              ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg glow-blue'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
           }`}
         >
           🇬🇧 EN
