@@ -9,22 +9,12 @@ interface ProjectsProps {
     title: string
     viewProject: string
     viewCode: string
-    proptech: {
+    cookingService: {
       title: string
       description: string
       tech: string[]
     }
-    cooking4u: {
-      title: string
-      description: string
-      tech: string[]
-    }
-    afipsdk: {
-      title: string
-      description: string
-      tech: string[]
-    }
-    dotfiles: {
+    techPocket: {
       title: string
       description: string
       tech: string[]
