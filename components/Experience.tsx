@@ -1,9 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 interface ExperienceProps {
   t: {
     title: string
@@ -18,30 +14,20 @@ interface ExperienceProps {
 }
 
 export default function Experience({ t }: ExperienceProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
   return (
-    <section id="experience" className="py-20 px-4" ref={ref}>
+    <section id="experience" className="py-20 px-4">
       <div className="container mx-auto max-w-4xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text animate-fade-in">
           {t.title}
-        </motion.h2>
+        </h2>
 
         <div className="space-y-6">
           {t.items.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-              transition={{ delay: index * 0.2 }}
-              className="glass rounded-2xl p-6 hover:glass-strong transition-all relative"
+              className="glass rounded-2xl p-6 hover:glass-strong transition-all relative animate-fade-in"
+              style={{animationDelay: `${index * 0.2}s`}}
             >
-              {/* Timeline dot */}
               <div className="absolute -left-3 top-8 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900" />
 
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
@@ -64,7 +50,7 @@ export default function Experience({ t }: ExperienceProps) {
               <p className="text-gray-300 leading-relaxed">
                 {item.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,9 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 interface ProjectsProps {
   t: {
     title: string
@@ -23,9 +19,6 @@ interface ProjectsProps {
 }
 
 export default function Projects({ t }: ProjectsProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
   const projects = [
     {
       ...t.cookingService,
@@ -40,24 +33,18 @@ export default function Projects({ t }: ProjectsProps) {
   ]
 
   return (
-    <section id="projects" className="py-20 px-4" ref={ref}>
+    <section id="projects" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text animate-fade-in">
           {t.title}
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ delay: index * 0.1 }}
-              className="glass rounded-2xl p-6 hover:glass-strong transition-all group"
+              className="glass rounded-2xl p-6 hover:glass-strong transition-all group animate-fade-in"
+              style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className={`w-full h-2 rounded-full bg-gradient-to-r ${project.gradient} mb-4`} />
 
@@ -89,7 +76,7 @@ export default function Projects({ t }: ProjectsProps) {
                 {t.viewCode}
                 <span>→</span>
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,9 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 interface SkillsProps {
   t: {
     title: string
@@ -15,9 +11,6 @@ interface SkillsProps {
 }
 
 export default function Skills({ t }: SkillsProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
   const skillCategories = [
     {
       title: t.backend,
@@ -42,24 +35,18 @@ export default function Skills({ t }: SkillsProps) {
   ]
 
   return (
-    <section id="skills" className="py-20 px-4" ref={ref}>
+    <section id="skills" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text animate-fade-in">
           {t.title}
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
-            <motion.div
+            <div
               key={category.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ delay: index * 0.1 }}
-              className="glass rounded-2xl p-6 hover:glass-strong transition-all"
+              className="glass rounded-2xl p-6 hover:glass-strong transition-all animate-fade-in"
+              style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className={`w-full h-1 rounded-full bg-gradient-to-r ${category.color} mb-4`} />
 
@@ -75,7 +62,7 @@ export default function Skills({ t }: SkillsProps) {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

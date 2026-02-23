@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import type { Translations } from '@/lib/translations'
 
@@ -28,10 +27,8 @@ export default function Navigation({ t }: NavigationProps) {
   ]
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+    <nav
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 animate-slide-down ${
         scrolled ? 'glass-strong py-4' : 'py-6'
       }`}
     >
@@ -50,6 +47,6 @@ export default function Navigation({ t }: NavigationProps) {
           </div>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   )
 }

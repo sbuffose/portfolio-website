@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { translations, type Language } from '@/lib/translations'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -32,19 +31,14 @@ export default function Home() {
       <Navigation t={t} />
 
       {/* Sections */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative z-10"
-      >
+      <div className="relative z-10 animate-fade-in">
         <Hero t={t.hero} />
         <About t={t.about} />
         <Projects t={t.projects} />
         <Skills t={t.skills} />
         <Experience t={t.experience} />
         <Contact t={t.contact} />
-      </motion.div>
+      </div>
 
       {/* Footer */}
       <footer className="relative z-10 py-8 text-center text-gray-400">

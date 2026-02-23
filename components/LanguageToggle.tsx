@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import type { Language } from '@/lib/translations'
 
 interface LanguageToggleProps {
@@ -10,11 +9,7 @@ interface LanguageToggleProps {
 
 export default function LanguageToggle({ language, setLanguage }: LanguageToggleProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="fixed top-6 right-6 z-50"
-    >
+    <div className="fixed top-6 right-6 z-50 animate-fade-in">
       <div className="glass-strong rounded-full p-1 flex gap-1">
         <button
           onClick={() => setLanguage('es')}
@@ -37,6 +32,6 @@ export default function LanguageToggle({ language, setLanguage }: LanguageToggle
           🇬🇧 EN
         </button>
       </div>
-    </motion.div>
+    </div>
   )
 }
